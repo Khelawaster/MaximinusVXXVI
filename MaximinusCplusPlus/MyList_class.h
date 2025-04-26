@@ -17,6 +17,7 @@ class MyList_class
 			tmp=tmp->Next;
 		return tmp;	
 	}
+
 public:
 	MyList_class(void)
 	{
@@ -25,9 +26,10 @@ public:
 		Start->Info=0;
 		Start->Next=NULL;
 	}
+
 	MyList_class(int N)
 	{
-		puts("This is MyList_class  constructor with filling");
+		puts("This is MyList_class constructor with filling");
 		Start=new MyList;
 		Start->Next=NULL;
 		Start->Info=0;
@@ -61,6 +63,14 @@ public:
 		}
 	}
 
+	~MyList_class()
+	{
+		while (!Empty())
+			Remove(1);
+		puts("My List_class DESTROYED!!! ");
+		delete Start;
+		Start = NULL;
+	}
 
 	int Get_Value(int Num)
 	{ 
@@ -97,15 +107,6 @@ public:
 		delete (Out);
 		Start->Info--;
 		return;
-	}
-
-	~MyList_class()
-	{ 
-		while(!Empty())
-		Remove(1);
-		puts("My List_class DESTROYED!!! ");
-		delete Start; 
-		Start=NULL;
 	}
 
 	void Append( int Data)
@@ -155,6 +156,32 @@ public:
 	}
 
 	void Exchange( int N1, int N2);
+
+	void Maximine() 
+	{
+		int min = Get_Value(1);
+		int max = min;
+		int cnt; int temp;
+		cnt = Get_Value(0);
+		for (int i = 1; i < cnt; i++) {
+			temp = Get_Value(i);
+			min = temp < min ? temp : min;
+			max = temp > max ? temp : max;
+		}
+		int Maximinus = (min + max) / 2;
+		printf("Максимум %d, минимум %d, полусумма %d\n\n", max, min, Maximinus);
+		//проходим второй раз - меняем элементы
+		bool OnOff = false;
+		for (int i = 1; i < cnt; i++) {
+			temp = Get_Value(i);
+			if (temp == min || temp == max) {
+				OnOff = !OnOff;
+			}
+			else if (OnOff)
+				Set_Value( i, Maximinus);
+		}
+	}
+
 };
 
 void MyList_class::Exchange( int N1, int N2)

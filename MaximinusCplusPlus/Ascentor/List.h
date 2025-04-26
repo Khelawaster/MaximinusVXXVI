@@ -39,10 +39,9 @@ struct MyList* CreateWithLengthRandom(int length) {
 }
 
 //Ручной ввод списка.
-struct MyList* CreateManual() {
-	printf("Ручной ввод списка\nВведите количество элементов\n");
-	int n = 0; int tmp;
-	scanf("%d" , &n);
+struct MyList* CreateManual(int n) {
+	printf("Ручной ввод списка\n");
+	int tmp;
 	struct MyList* ret = CreateWithValue(0);
 	for (int i = 0; i < n; i++)
 	{

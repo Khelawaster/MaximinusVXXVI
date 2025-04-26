@@ -68,7 +68,7 @@ int main()
 	if (settings->ArrayRandomValues == 1)
 		lst = CreateWithLengthRandom(settings->ListDefaultLength);
 	else
-		lst = CreateManual();
+		lst = CreateManual(settings->ListDefaultLength);
 	
 	Print(lst);
 	//MaximineListByValue(lst);

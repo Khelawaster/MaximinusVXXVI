@@ -15,8 +15,9 @@ int main()
 		new MyList_class (settings->ListDefaultLength, settings->InfoMaxRandomValue)
 		: new MyList_class (settings->ListDefaultLength,true);
 	Suslik->Print();
-	//Oslik.Print();
-	//getchar();
+	Suslik->Maximine();
+	Suslik->Print();
+	getchar();
 	//Suslik->Append(100); Suslik->Append(100); Suslik->Print(); 
 	//getchar();
 	//Oslik.Remove(5); Oslik.Remove(5);
