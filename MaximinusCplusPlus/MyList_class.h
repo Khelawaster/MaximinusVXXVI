@@ -163,7 +163,7 @@ public:
 		int max = min;
 		int cnt; int temp;
 		cnt = Get_Value(0);
-		for (int i = 1; i < cnt; i++) {
+		for (int i = 1; i <= cnt; i++) {
 			temp = Get_Value(i);
 			min = temp < min ? temp : min;
 			max = temp > max ? temp : max;
