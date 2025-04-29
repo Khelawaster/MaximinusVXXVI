@@ -1,4 +1,4 @@
-#include <string>
+#include <cstring>
 using namespace std;
 
 #define BUFFER_SIZE 257 //размер буфера для чтения файла конфигурации
@@ -72,8 +72,8 @@ void SettingsCreate()
 	if (fp == NULL)
 	{
 		printf("Ой всё сломалось!!!\nНе могу создать файл конфигурации.");
-		_fcloseall();
-		_exit(1);
+		fclose(fp);
+		exit(1);
 	}
 	fputc(COMMENT_SYMBOL, fp);
 	fputs("Файл конфигурации программы Maximinus\n", fp);

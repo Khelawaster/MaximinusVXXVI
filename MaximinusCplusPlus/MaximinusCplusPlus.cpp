@@ -11,14 +11,14 @@ int main()
 	struct Settings* settings;
 	settings=SettingsRead();//чтение конфигурации
 
-	//MyList_class* Suslik;
-	//Suslik = settings->ArrayRandomValues==1 ?
-	//	new MyList_class (settings->ListDefaultLength, settings->InfoMaxRandomValue)
-	//	: new MyList_class (settings->ListDefaultLength,true);
-	//Suslik->Print();
-	//Suslik->Maximine();
-	//Suslik->Print();
-	//getchar();
+	MyList_class* Suslik;
+	Suslik = settings->ArrayRandomValues==1 ?
+		new MyList_class (settings->ListDefaultLength, settings->InfoMaxRandomValue)
+		: new MyList_class (settings->ListDefaultLength,true);
+	Suslik->Print();
+	Suslik->Maximine();
+	Suslik->Print();
+	getchar();
 
 	auto Oslik = settings->ArrayRandomValues==1 ? 
 		new MyQueue_class(settings->ListDefaultLength, settings->InfoMaxRandomValue)
