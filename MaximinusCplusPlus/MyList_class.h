@@ -6,7 +6,7 @@ struct MyList
 
 class MyList_class
 {
-	struct MyList *Start;
+
 	struct MyList *Get_Address( int Num)
 	{
 		int Count;
@@ -17,6 +17,9 @@ class MyList_class
 			tmp=tmp->Next;
 		return tmp;	
 	}
+
+protected:
+	struct MyList *Start;
 
 public:
 	MyList_class(void)
