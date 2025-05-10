@@ -3,6 +3,7 @@
 //#include "MyList_class.h"
 #include "Settings.h"
 #include "MyQueue_class.h"
+#include "MyFunctions.h"
 
 int main()
 {
@@ -10,11 +11,13 @@ int main()
 	char* locale = setlocale(LC_ALL, ""); //локализация
 	struct Settings* settings;
 	settings=SettingsRead();//чтение конфигурации
-
+	Croco();
+	printf("В списке целых чисел все элементы между Max и Min заменить полусуммой Max и Min\n");
 	MyList_class* Suslik;
 	Suslik = settings->ArrayRandomValues==1 ?
 		new MyList_class (settings->ListDefaultLength, settings->InfoMaxRandomValue)
 		: new MyList_class (settings->ListDefaultLength,true);
+
 	Suslik->Print();
 	Suslik->Maximine();
 	Suslik->Print();
@@ -40,7 +43,6 @@ int main()
 	Oslik->Sort();
 	std::cout << "Queue bubble sort!\n";
 	Oslik->Print();
-
 
 	//Suslik->Append(100); Suslik->Append(100); Suslik->Print(); 
 	//getchar();

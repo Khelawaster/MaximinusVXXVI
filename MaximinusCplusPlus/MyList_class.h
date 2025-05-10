@@ -182,20 +182,7 @@ public:
 		}
 	}
 
-	void Sort()
-	{
-		int n = Amount();
-		if (n == 1) return;
-		for (int i = 1; i <= n; i++)
-		{
-			for (int j = 1; j <= n - i; j++)
-			{
-				if (Get_Value(j) >= Get_Value(j + 1))
-					Exchange(j, j + 1);
-			}
-		}
 
-	}
 
 };
 

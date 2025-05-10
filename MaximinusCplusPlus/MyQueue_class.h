@@ -24,16 +24,30 @@ class MyQueue_class : public MyList_class
 			puts("Destructor of Queue!!!!");
 		}	
 
-		void Enqueue(int data)
+		void Push(int data)
 		{
 			Append(data);
 		}
 
-		int Dequeue()
+		int Pop()
 		{
 			int ret = Get_Value(1);
 			Remove(1);
 			return ret;
+		}
+		void Sort()
+		{
+			int n = Amount();
+			if (n == 1) return;
+			for (int i = 1; i <= n; i++)
+			{
+				for (int j = 1; j <= n - i; j++)
+				{
+					if (Get_Value(j) >= Get_Value(j + 1))
+						Exchange(j, j + 1);
+				}
+			}
+
 		}
 		//void Print(void);
 		//int Show_Up_Stack(void){
@@ -50,6 +64,7 @@ class MyQueue_class : public MyList_class
 		//}
 	
 };
+
 //void MyQueue::Print(void){
 //	if(Empty()){
 //		puts("Stack is Empty!!!");

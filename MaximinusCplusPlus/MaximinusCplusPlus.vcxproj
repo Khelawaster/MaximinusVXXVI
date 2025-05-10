@@ -130,6 +130,7 @@
     <ClCompile Include="MaximinusCplusPlus.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="MyFunctions.h" />
     <ClInclude Include="MyList_class.h" />
     <ClInclude Include="MyQueue_class.h" />
     <ClInclude Include="Settings.h" />
