@@ -18,7 +18,7 @@ class MyList_class
 		return tmp;	
 	}
 
-protected:
+//protected:
 	struct MyList *Start;
 
 public:

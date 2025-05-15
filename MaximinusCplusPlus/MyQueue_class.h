@@ -1,6 +1,5 @@
 #include <iostream>
 #include "MyList_class.h"
-
 class MyQueue_class : public MyList_class 
 {
 	public:
@@ -50,8 +49,9 @@ class MyQueue_class : public MyList_class
 		int Pop(void)
 		{
 			int tmp;
-			tmp=Get_Value(1);
-			Remove(1);
+			int a = Amount();
+			tmp=Get_Value(a);
+			Remove(a);
 			return tmp;	
 		}
 
@@ -84,38 +84,3 @@ void MyQueue_class::Print(void)
 	}
 }
 // </это я отремил>
-void MyQueue_class::Sort(void)
-{
-	if (Empty())
-	{
-		puts("Queue is Empty!!!");
-		return;
-	}
-	int tmp; //сюда извлекаем мочередное значение из очереди
-	MyQueue_class Tmp_Queue;//временная очередь, куда будем помещать значения в отсортированном порядке
-	int cnt; //текущее число элементов во временной очереди
-	while (!Empty())
-	{
-		tmp = Pop(); //вытаскиваем значение из исходного списка
-		cnt = Tmp_Queue.Amount(); 
-		if (cnt == 0) //если во временной очереди пусто
-			Tmp_Queue.Push(tmp); // просто добавляем текущий элемент
-		else
-		{
-			for (int i = 1; i <= cnt; i++) //перебираем временную очередь
-			{
-				if (Tmp_Queue.Get_Value(i) < tmp) //если текущий элемент больше очередного
-				{
-					Tmp_Queue.Insert(i, tmp); //ставим его во временную очередь перед очередным
-					break;
-				}
-				if (i== Tmp_Queue.Amount()) //если мы дошли до конца - значит текущий элемент наименьший в очереди
-					Tmp_Queue.Append(tmp); //добавляем его в конец
-			} 
-		}
-	} //так мы получили временную очередь, отсортированную в обратном порядке и опустошили нашу исходную
-	while (!Tmp_Queue.Empty())
-	{
-		Push(Tmp_Queue.Pop()); // переносим данные из временной очереди обратно в исходную
-	}
-}
